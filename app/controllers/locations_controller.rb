@@ -13,13 +13,13 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(location_params)
+    @location = @trip.locations(location_params)
 
     if @location.save
-      redirect_to trip_locations_path(@trip)
+      redirect_to locations_path(@trip)
     else
       # binding.pry
-      render :new
+
     end
 
   end
@@ -35,6 +35,10 @@ class LocationsController < ApplicationController
 
   def set_location
     @location = Location.find(params[:trip_id])
+  end
+
+  def set_trip_id
+    @trip = Trip.find(:id)
   end
 
 end

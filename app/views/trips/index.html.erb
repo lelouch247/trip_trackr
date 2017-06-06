@@ -7,9 +7,9 @@
 
 <% else %>
 
-  <% @trips.each do |trip| %>
+  <% @trips.each do |trip|%>
 
-  <%= link_to trip.title, trip_locations_path(trip, @locations) %>
+  <%= link_to trip.title, trip_locations_path(trip) %>
   <%= link_to 'Delete Trip', trip_path(trip), method: :delete %>
   <% end %>
 <% end %>
