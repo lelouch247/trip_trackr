@@ -1,0 +1,15 @@
+<h1> My Trips!! </h1>
+
+<%= link_to 'Add Trip', new_trip_path %>
+
+<% if @trips.empty? %>
+  <h3 class="text-center"> There is nothing on your list! Please enter your trip!</h3>
+
+<% else %>
+
+  <% @trips.each do |trip| %>
+
+  <%= link_to trip.title, trip_locations_path(trip, @locations) %>
+  <%= link_to 'Delete Trip', trip_path(trip), method: :delete %>
+  <% end %>
+<% end %>
